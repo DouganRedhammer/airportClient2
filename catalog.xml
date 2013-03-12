@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/C:/Users/Dougan/Documents/airportClient2/airport.wsdl" uri="src/conf/xml-resources/web-service-references/airport/wsdl/airport.wsdl"/>
+    <system systemId="http://localhost:9000/airport?xsd=1" uri="src/conf/xml-resources/web-service-references/airport/wsdl/localhost_9000/airport.xsd_1.xsd"/>
+</catalog>
