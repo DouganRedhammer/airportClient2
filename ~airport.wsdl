@@ -4,16 +4,17 @@
 <xsd:import namespace="http://my.org/ns/" schemaLocation="http://localhost:9000/airport?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="getAirportInformationByCityOrAirportName">
-<part name="arg0" type="xsd:string"/>
-</message>
-<message name="getAirportInformationByCityOrAirportNameResponse">
-<part name="return" type="xsd:string"/>
-</message>
 <message name="getAirportInformationByAirportCode">
 <part name="arg0" type="xsd:string"/>
 </message>
 <message name="getAirportInformationByAirportCodeResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<message name="getAirportInfo">
+<part name="arg0" type="xsd:string"/>
+<part name="arg1" type="xsd:string"/>
+</message>
+<message name="getAirportInfoResponse">
 <part name="return" type="xsd:string"/>
 </message>
 <message name="getTempatureOfCity">
@@ -39,13 +40,6 @@
 <message name="IOException">
 <part name="fault" element="tns:IOException"/>
 </message>
-<message name="getDrivingTime">
-<part name="arg0" type="xsd:string"/>
-<part name="arg1" type="xsd:string"/>
-</message>
-<message name="getDrivingTimeResponse">
-<part name="return" type="xsd:string"/>
-</message>
 <message name="getWeatherOfCity">
 <part name="arg0" type="xsd:string"/>
 <part name="arg1" type="xsd:string"/>
@@ -54,13 +48,13 @@
 <part name="return" type="xsd:string"/>
 </message>
 <portType name="Server">
-<operation name="getAirportInformationByCityOrAirportName">
-<input wsam:Action="http://my.org/ns/Server/getAirportInformationByCityOrAirportNameRequest" message="tns:getAirportInformationByCityOrAirportName"/>
-<output wsam:Action="http://my.org/ns/Server/getAirportInformationByCityOrAirportNameResponse" message="tns:getAirportInformationByCityOrAirportNameResponse"/>
-</operation>
 <operation name="getAirportInformationByAirportCode">
 <input wsam:Action="http://my.org/ns/Server/getAirportInformationByAirportCodeRequest" message="tns:getAirportInformationByAirportCode"/>
 <output wsam:Action="http://my.org/ns/Server/getAirportInformationByAirportCodeResponse" message="tns:getAirportInformationByAirportCodeResponse"/>
+</operation>
+<operation name="getAirportInfo" parameterOrder="arg0 arg1">
+<input wsam:Action="http://my.org/ns/Server/getAirportInfoRequest" message="tns:getAirportInfo"/>
+<output wsam:Action="http://my.org/ns/Server/getAirportInfoResponse" message="tns:getAirportInfoResponse"/>
 </operation>
 <operation name="getTempatureOfCity" parameterOrder="arg0 arg1">
 <input wsam:Action="http://my.org/ns/Server/getTempatureOfCityRequest" message="tns:getTempatureOfCity"/>
@@ -73,13 +67,6 @@
 <fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://my.org/ns/Server/getDrivingDistance/Fault/JAXBException"/>
 <fault message="tns:IOException" name="IOException" wsam:Action="http://my.org/ns/Server/getDrivingDistance/Fault/IOException"/>
 </operation>
-<operation name="getDrivingTime" parameterOrder="arg0 arg1">
-<input wsam:Action="http://my.org/ns/Server/getDrivingTimeRequest" message="tns:getDrivingTime"/>
-<output wsam:Action="http://my.org/ns/Server/getDrivingTimeResponse" message="tns:getDrivingTimeResponse"/>
-<fault message="tns:MalformedURLException" name="MalformedURLException" wsam:Action="http://my.org/ns/Server/getDrivingTime/Fault/MalformedURLException"/>
-<fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://my.org/ns/Server/getDrivingTime/Fault/JAXBException"/>
-<fault message="tns:IOException" name="IOException" wsam:Action="http://my.org/ns/Server/getDrivingTime/Fault/IOException"/>
-</operation>
 <operation name="getWeatherOfCity" parameterOrder="arg0 arg1">
 <input wsam:Action="http://my.org/ns/Server/getWeatherOfCityRequest" message="tns:getWeatherOfCity"/>
 <output wsam:Action="http://my.org/ns/Server/getWeatherOfCityResponse" message="tns:getWeatherOfCityResponse"/>
@@ -87,7 +74,7 @@
 </portType>
 <binding name="ServerImpPortBinding" type="tns:Server">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
-<operation name="getAirportInformationByCityOrAirportName">
+<operation name="getAirportInformationByAirportCode">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal" namespace="http://my.org/ns/"/>
@@ -96,7 +83,7 @@
 <soap:body use="literal" namespace="http://my.org/ns/"/>
 </output>
 </operation>
-<operation name="getAirportInformationByAirportCode">
+<operation name="getAirportInfo">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal" namespace="http://my.org/ns/"/>
@@ -115,24 +102,6 @@
 </output>
 </operation>
 <operation name="getDrivingDistance">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal" namespace="http://my.org/ns/"/>
-</input>
-<output>
-<soap:body use="literal" namespace="http://my.org/ns/"/>
-</output>
-<fault name="MalformedURLException">
-<soap:fault name="MalformedURLException" use="literal"/>
-</fault>
-<fault name="JAXBException">
-<soap:fault name="JAXBException" use="literal"/>
-</fault>
-<fault name="IOException">
-<soap:fault name="IOException" use="literal"/>
-</fault>
-</operation>
-<operation name="getDrivingTime">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal" namespace="http://my.org/ns/"/>
