@@ -12,17 +12,32 @@ public class Main
 
     public static void main(String[] args) throws MalformedURLException_Exception, IOException_Exception, JAXBException_Exception
     {
+        
         System.out.println("The airport code NRT belongs to: "+Main.getAirportInformationByAirportCode("nrt") + " airport.");
+        
         System.out.println("The driving distance from Paso Robles to San Jose is: "
                 +Main.getDrivingDistance("Paso+Robles", "San+Jose"));
+        
         System.out.println("It will take about " + Main.getDrivingTime("Paso+Robles", "San+Jose") + " to drive there.");
+        
         System.out.println("The current tempature in Paso Robles is " + Main.getTempatureOfCity("Paso Robles", "United States"));
-         System.out.println("The current tempature in Tokyo is " + Main.getTempatureOfCity("Tokyo", "Japan"));
+       
+        System.out.println("The current tempature in Tokyo is " + Main.getTempatureOfCity("Tokyo", "Japan"));
          
         String detailedWeather = Main.getWeatherOfCity("Paso Robles", "United States");
-         System.out.println(detailedWeather);
+        
+        System.out.println(detailedWeather);
          
-         System.out.println(Main.getAirportInformationByCityOrAirportName("Paso Robles"));
+        System.out.println(Main.getAirportInformationByCityOrAirportName("Paso Robles"));
+      
+        //System.out.println("<NewDataSet> Should be empty "+Main.getAirportInformationByCityOrAirportName("san francisco"));
+
+      /* 
+        System.out.println("The driving/sailing distance from Paso Robles to Tokyo, Japan is: "
+                +Main.getDrivingDistance("Paso+Robles", "Tokyo"));
+        System.out.println("It will take about " + Main.getDrivingTime("Paso+Robles", "tokyo") + " to drive/sail there.");
+      */ 
+         
     }
 
     

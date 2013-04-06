@@ -28,7 +28,7 @@
     </target>
     <target name="wsimport-client-airport" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/airport"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/airport" destdir="${build.generated.dir}/jax-wsCache/airport" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/airport/wsdl/airport.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="file:/C:/Users/Dougan/Documents/airportClient2/airport.wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/airport" destdir="${build.generated.dir}/jax-wsCache/airport" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/airport/wsdl/airport.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:9000/airport?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/airport/wsdl/airport.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/airport"/>
         </wsimport>
